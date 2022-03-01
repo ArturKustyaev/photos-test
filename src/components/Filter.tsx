@@ -18,14 +18,10 @@ import { sortFields } from '../store/reducers/constants'
 
 const useStyles = makeStyles((theme: Theme) => ({
 	wrapper: {
-		marginBottom: '24px',
+		marginBottom: theme.spacing(3),
 		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column',
-			alignItems: 'flex-start',
-
-			'> *:last-child': {
-				border: '1px solid red'
-			}
+			alignItems: 'flex-start'
 		}
 	},
 	sort_input_wrapper: {
@@ -81,7 +77,7 @@ const Filter: React.FC = () => {
 					value={filterByAlbumId}
 				>
 					<MenuItem value={''}>Все</MenuItem>
-					{albums.map(album => (
+					{albums.map((album: IAlbum) => (
 						<MenuItem key={album.id} value={album.id}>
 							id альбома: {album.id}
 						</MenuItem>

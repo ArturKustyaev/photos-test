@@ -75,7 +75,7 @@ const PhotoList: React.FC = () => {
 		<>
 			<Filter />
 			<Grid className={classes.photos_wrapper} columns={12} container spacing={3}>
-				{photos.map(photo => (
+				{photos.map((photo: IPhoto) => (
 					<Grid item xs={6} sm={3} md={2} key={photo.id}>
 						<PhotoItem photo={photo} onClick={openHandler} />
 					</Grid>

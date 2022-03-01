@@ -20,7 +20,7 @@ export const fetchPhotos = (params: IParams) => (dispatch: Dispatch<ActionCreato
 
 	photosApi
 		.fetchPhotos(params)
-		.then(response => {
+		.then((response: AxiosResponse) => {
 			const data: IFetchPhotosSuccessResponse = {
 				data: response.data,
 				count: +response.headers['x-total-count']
@@ -38,7 +38,7 @@ const fetchPhotosSuccess = (response: IFetchPhotosSuccessResponse): ActionCreato
 export const fetchAlbums = () => (dispatch: Dispatch<ActionCreatorsType>) => {
 	photosApi
 		.fetchAlbums()
-		.then(response => dispatch(fetchAlbumsSuccess(response.data)))
+		.then((response: AxiosResponse) => dispatch(fetchAlbumsSuccess(response.data)))
 		.catch(error => dispatch(fetchError(error.message)))
 }
 
